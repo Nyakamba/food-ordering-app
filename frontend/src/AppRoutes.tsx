@@ -21,7 +21,7 @@ const AppRoutes = () => {
         <Route
           path="/user-profile"
           element={
-            <Layout>
+            <Layout showHero={false}>
               <UserProfilePage />
             </Layout>
           }
