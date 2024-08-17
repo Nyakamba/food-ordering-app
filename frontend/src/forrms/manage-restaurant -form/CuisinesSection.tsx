@@ -1,4 +1,5 @@
 import { FormDescription, FormField, FormItem } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form";
 
 const CuisinesSection = () => {
