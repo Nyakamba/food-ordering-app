@@ -16,7 +16,7 @@ const MenuSection = () => {
       <div>
         <h2 className="text-2xl font-bold">Menu</h2>
         <FormDescription>
-          Create your menu and give each a name and a price
+          Create your menu and give each item a name and a price
         </FormDescription>
       </div>
       <FormField
@@ -26,7 +26,6 @@ const MenuSection = () => {
           <FormItem className="flex flex-col gap-2">
             {fields.map((_, index) => (
               <MenuItemInput
-                key={index}
                 index={index}
                 removeMenuItem={() => remove(index)}
               />

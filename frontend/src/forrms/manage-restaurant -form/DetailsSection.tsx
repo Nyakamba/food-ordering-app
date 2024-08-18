@@ -14,9 +14,9 @@ const DetailsSection = () => {
   return (
     <div className="space-y-2">
       <div>
-        <h2 className=" text-2xl font-bold">Details</h2>
+        <h2 className="text-2xl font-bold">Details</h2>
         <FormDescription>
-          Enter the details about your restarant
+          Enter the details about your restaurant
         </FormDescription>
       </div>
       <FormField
@@ -37,7 +37,7 @@ const DetailsSection = () => {
           control={control}
           name="city"
           render={({ field }) => (
-            <FormItem className=" flex-1">
+            <FormItem className="flex-1">
               <FormLabel>City</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
@@ -50,11 +50,11 @@ const DetailsSection = () => {
           control={control}
           name="country"
           render={({ field }) => (
-            <FormItem className=" flex-1">
+            <FormItem className="flex-1">
               <FormLabel>Country</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
-              </FormControl>{" "}
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
@@ -66,23 +66,23 @@ const DetailsSection = () => {
         name="deliveryPrice"
         render={({ field }) => (
           <FormItem className="max-w-[25%]">
-            <FormLabel>Delivery price ($)</FormLabel>
+            <FormLabel>Delivery price (£)</FormLabel>
             <FormControl>
               <Input {...field} className="bg-white" placeholder="1.50" />
-            </FormControl>{" "}
+            </FormControl>
             <FormMessage />
           </FormItem>
         )}
       />
       <FormField
         control={control}
-        name="estimatedDeliverTime"
+        name="estimatedDeliveryTime"
         render={({ field }) => (
           <FormItem className="max-w-[25%]">
             <FormLabel>Estimated Delivery Time (minutes)</FormLabel>
             <FormControl>
               <Input {...field} className="bg-white" placeholder="30" />
-            </FormControl>{" "}
+            </FormControl>
             <FormMessage />
           </FormItem>
         )}
