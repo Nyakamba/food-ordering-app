@@ -41,7 +41,7 @@ const DetailsSection = () => {
               <FormLabel>City</FormLabel>
               <FormControl>
                 <Input {...field} className="bg-white" />
-              </FormControl>{" "}
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
