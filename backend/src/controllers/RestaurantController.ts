@@ -1,6 +1,21 @@
 import { Request, Response } from "express";
 import Restaurant from "../models/restaurant";
 
+const getRestaurant = async (req: Request, res: Response) => {
+  try {
+    const restaurantId = req.params.restaurantId;
+
+    const restaurant = await Restaurant.findById(restaurantId);
+
+    if (!restaurant)
+      return res.status(404).json({ message: "restaurant not found" });
+
+    res.json(restaurant);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const searchRestaurant = async (req: Request, res: Response) => {
   try {
     const city = req.params.city;
@@ -13,7 +28,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
 
     query["city"] = new RegExp(city, "i");
     const cityCheck = await Restaurant.countDocuments(query);
-    if (cityCheck === 0) {
+    if (cityCheck === 0)
       return res.status(404).json({
         data: [],
         pagination: {
@@ -22,7 +37,6 @@ const searchRestaurant = async (req: Request, res: Response) => {
           pages: 1,
         },
       });
-    }
 
     if (selectedCuisines) {
       const cuisinesArray = selectedCuisines
@@ -67,5 +81,5 @@ const searchRestaurant = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Something went wrong" });
   }
 };
-//
-export default { searchRestaurant };
+
+export default { getRestaurant, searchRestaurant };
