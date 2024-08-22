@@ -74,23 +74,23 @@ const updateMyRestaurant = async (req: Request, res: Response) => {
   }
 };
 
-// const getMyRestaurantOrders = async (req: Request, res: Response) => {
-//   try {
-//     const restaurant = await Restaurant.findOne({ user: req.userId });
-//     if (!restaurant) {
-//       return res.status(404).json({ message: "restaurant not found" });
-//     }
+const getMyRestaurantOrders = async (req: Request, res: Response) => {
+  try {
+    const restaurant = await Restaurant.findOne({ user: req.userId });
+    if (!restaurant) {
+      return res.status(404).json({ message: "restaurant not found" });
+    }
 
-//     const orders = await Order.find({ restaurant: restaurant._id })
-//       .populate("restaurant")
-//       .populate("user");
+    const orders = await Order.find({ restaurant: restaurant._id })
+      .populate("restaurant")
+      .populate("user");
 
-//     res.json(orders);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "something went wrong" });
-//   }
-// };
+    res.json(orders);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "something went wrong" });
+  }
+};
 
 const updateOrderStatus = async (req: Request, res: Response) => {
   try {
@@ -129,7 +129,7 @@ const uploadImage = async (file: Express.Multer.File) => {
 
 export default {
   updateOrderStatus,
-  // getMyRestaurantOrders,
+  getMyRestaurantOrders,
   getMyRestaurant,
   createMyRestaurant,
   updateMyRestaurant,
